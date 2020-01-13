@@ -9,17 +9,10 @@ def homePage():
 def html_page(page_name):
     return render_template(page_name)
 
+@app.route('/submit_form', methods=['POST', 'GET'])
+def submit_page():
 
-#@app.route('/about.html')
-#def about():
-    #return render_template("about.html")
-
-
-@app.route('/blog')
-def blog():
-    return "this is my blog"
+    return 'form submitted'
 
 
-@app.route('/blog/2020/deepLearning')
-def blog2():
-    return "these are my blogs on deep learning"
+
