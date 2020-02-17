@@ -23,12 +23,16 @@ def html_page(page_name):
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_page():
     if request.method == "POST":
-        data = request.form.to_dict()
-        write_to_csv(data)
-        print(data)
-        return redirect("/thankyou.html")
+        try:
+            data = request.form.to_dict()
+            write_to_csv(data)
+            print(data)
+            return redirect("/thankyou.html")
+        except:
+            return "Did not save to the database"
+    else:
+        return "Somethign went wrong"
 
-    return 'form submitted'
 
 
 
